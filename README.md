@@ -1,6 +1,6 @@
 # Aplicativo CakePHP com controle de acessos
 
-Description....
+Projeto CakePHP pronto para iniciar qualquer aplicação que necessite de Login e Controle de Acessos com ACL.
 
 ## Instalação
 
@@ -8,7 +8,7 @@ Description....
 
 - via git clone:
 ```
-git clone https://github.com/andersoncorso/cakephp-access_control.git
+git clone https://github.com/andersoncorso/cakephp-app.git
 ```
 
 ### 2) Instale os pacotes de dependências 
@@ -23,10 +23,10 @@ composer update
 
 ### CakePHP 3x:
 
-1) Renomeie o arquivo `config/app.default.php` para `config/app.php`;
-2) Abra o arquivo e configure o `'SECURITY_SALT'` e também o `'Datasources'` alem de qualquer outra configuração relevante.
+- Renomeie o arquivo `config/app.default.php` para `config/app.php`;
+- Abra o arquivo e configure o `'SECURITY_SALT'` e também o `'Datasources'` alem de qualquer outra configuração relevante.
 
-### Plugin AclManager [AclManager](https://github.com/ivanamat/cakephp3-aclmanager):
+### Plugin [AclManager](https://github.com/ivanamat/cakephp3-aclmanager):
 
 - importe a estrutura de Banco de Dados
 ```

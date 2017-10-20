@@ -47,4 +47,11 @@ config/schema/acl_manager.sql
 
 ## Layout
 
+### Tema [AdminLTE](https://github.com/maiconpinto/cakephp-adminlte-theme);
+- Por padrão o App utiliza o tema AdminLTE, visite a página oficial para mais detalhes. 
 
+### Favicon
+- Acesse o site [Favicon Generator](https://www.favicon-generator.org/), crie seu favicon e cole dentros do diretório:
+```
+webroot/img/favicon/
+```

@@ -1,3 +1,5 @@
+<!-- File: src/Template/Users/login.ctp -->
+<?php $this->layout = 'AdminLTE.login'; ?>
 
 <?= $this->Form->create() ?>
 

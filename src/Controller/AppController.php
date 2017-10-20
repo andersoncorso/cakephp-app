@@ -16,6 +16,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\Core\Configure;
 
 /**
  * Application Controller
@@ -120,6 +121,13 @@ class AppController extends Controller
 		) {
 			$this->set('_serialize', true);
 		}
+
+		$this->viewBuilder()->theme('AdminLTE');
+		if(Configure::read('Theme.layout'))
+			$this->viewBuilder()->layout('AdminLTE.'.Configure::read('Theme.layout')); // opcional
+
+		// AdminLTE - Customize layout
+		$this->viewBuilder()->className('AdminLTE.AdminLTE');
 	}
 
 	/**
@@ -128,15 +136,14 @@ class AppController extends Controller
 	 * @param array $user user logged.
 	 * @return void
 	 */
-	// public function isAuthorized($user) {
-	//     // return true;
+	public function isAuthorized($user) {
 		
-	//     // Admin can access every action
-	//     if (isset($user['role_id']) && $user['role_id'] === 1) {
-	//         return true;
-	//     }
+		// Admin can access every action
+		if (isset($user['role_id']) && $user['role_id'] === 1) {
+			return true;
+		}
 
-	//     // Default deny
-	//     return false;
-	// }
+		// Default deny
+		return false;
+	}
 }

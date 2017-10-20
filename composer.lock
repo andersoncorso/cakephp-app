@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f8951971233714cc8f08835ca7148501",
+    "content-hash": "3bac0d7a00b0ee84c33e3b8244d14444",
     "packages": [
         {
             "name": "aura/intl",
@@ -610,6 +610,54 @@
                 "support"
             ],
             "time": "2016-10-06T19:31:28+00:00"
+        },
+        {
+            "name": "maiconpinto/cakephp-adminlte-theme",
+            "version": "1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maiconpinto/cakephp-adminlte-theme.git",
+                "reference": "2f41a2db457680fd16019c0593ba65c6691fa738"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maiconpinto/cakephp-adminlte-theme/zipball/2f41a2db457680fd16019c0593ba65c6691fa738",
+                "reference": "2f41a2db457680fd16019c0593ba65c6691fa738",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "~3.0",
+                "php": ">=5.4.16"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.1"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "AdminLTE\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maicon Pinto",
+                    "email": "maiconsilva.pinto@gmail.com",
+                    "homepage": "https://www.maiconpinto.com.br/",
+                    "role": "Author"
+                }
+            ],
+            "description": "CakePHP 3.x AdminLTE Theme.",
+            "homepage": "https://github.com/maiconpinto/cakephp-adminlte-theme",
+            "keywords": [
+                "cakephp",
+                "plugin",
+                "templates"
+            ],
+            "time": "2017-08-25T02:11:19+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",

@@ -2,6 +2,7 @@
 namespace AccessManager\Controller;
 
 use AccessManager\Controller\AppController;
+use Cake\Core\Configure;
 
 /**
  * Groups Controller
@@ -13,99 +14,73 @@ use AccessManager\Controller\AppController;
 class GroupsController extends AppController
 {
 
-    /**
-     * Index method
-     *
-     * @return \Cake\Http\Response|void
-     */
-    public function index()
-    {
+/**
+ ==== FUNÇÕES DE CRUD ====
+ */
+    public function index() {
         $groups = $this->paginate($this->Groups);
 
         $this->set(compact('groups'));
-        $this->set('_serialize', ['groups']);
     }
 
-    /**
-     * View method
-     *
-     * @param string|null $id Group id.
-     * @return \Cake\Http\Response|void
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
+    public function view($id = null) {
         $group = $this->Groups->get($id, [
             'contain' => ['Roles', 'Users']
         ]);
 
         $this->set('group', $group);
-        $this->set('_serialize', ['group']);
     }
 
-    /**
-     * Add method
-     *
-     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
-     */
-    public function add()
-    {
+    public function add() {
+
         $group = $this->Groups->newEntity();
         if ($this->request->is('post')) {
+
             $group = $this->Groups->patchEntity($group, $this->request->getData());
             if ($this->Groups->save($group)) {
-                $this->Flash->success(__('The group has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                $this->Flash->success(__('Os dados foram salvos.'));
+                return $this->redirect(['action' => 'index', 'plugin'=>'AccessManager']);
             }
-            $this->Flash->error(__('The group could not be saved. Please, try again.'));
+            $this->Flash->error(__('Erro ao salvar os dados. Por favor, verifique e tente novamente ou entre em contato.'));
         }
         $this->set(compact('group'));
-        $this->set('_serialize', ['group']);
     }
 
-    /**
-     * Edit method
-     *
-     * @param string|null $id Group id.
-     * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function edit($id = null)
-    {
+    public function edit($id = null) {
+
         $group = $this->Groups->get($id, [
             'contain' => []
         ]);
+
         if ($this->request->is(['patch', 'post', 'put'])) {
+
             $group = $this->Groups->patchEntity($group, $this->request->getData());
             if ($this->Groups->save($group)) {
-                $this->Flash->success(__('The group has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                $this->Flash->success(__('Os dados foram salvos.'));
+
+                return $this->redirect(['action' => 'index', 'plugin'=>'AccessManager']);
             }
-            $this->Flash->error(__('The group could not be saved. Please, try again.'));
+            $this->Flash->error(__('Erro ao salvar os dados. Por favor, verifique e tente novamente ou entre em contato.'));
         }
         $this->set(compact('group'));
-        $this->set('_serialize', ['group']);
     }
 
-    /**
-     * Delete method
-     *
-     * @param string|null $id Group id.
-     * @return \Cake\Http\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function delete($id = null)
-    {
+    public function delete($id = null) {
+
         $this->request->allowMethod(['post', 'delete']);
         $group = $this->Groups->get($id);
+
         if ($this->Groups->delete($group)) {
-            $this->Flash->success(__('The group has been deleted.'));
-        } else {
-            $this->Flash->error(__('The group could not be deleted. Please, try again.'));
+
+            $this->Flash->success(__('O registro foi excluido.'));
+        }
+        else {
+
+            $this->Flash->error(__('Erro ao excluir o registro. Por favor, tente novamente ou entre em contato.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['action' => 'index', 'plugin'=>'AccessManager']);
     }
 }

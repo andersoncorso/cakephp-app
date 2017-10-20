@@ -1,7 +1,7 @@
 {
-    "name": "andersoncorso/cakephp-access_control",
-    "description": "Aplicação pronta para controle de acessos com ACL, incluindo CRUD de Groups, Roles e Users.",
-    "homepage": "https://github.com/andersoncorso",
+    "name": "andersoncorso/cakephp-app",
+    "description": "Projeto CakePHP pronto para iniciar qualquer aplicação que necessite de Login e Controle de Acessos com ACL.",
+    "homepage": "https://github.com/andersoncorso/cakephp-app",
     "type": "project",
     "license": "MIT",
     "require": {
@@ -11,7 +11,8 @@
         "cakephp/migrations": "~1.0",
         "cakephp/plugin-installer": "~1.0",
         "josegonzalez/dotenv": "2.*",
-        "ivanamat/cakephp3-aclmanager": "^1.2"
+        "ivanamat/cakephp3-aclmanager": "^1.2",
+        "maiconpinto/cakephp-adminlte-theme": "^1.0"
     },
     "require-dev": {
         "psy/psysh": "@stable",

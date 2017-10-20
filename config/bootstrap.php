@@ -51,11 +51,11 @@ use Cake\Utility\Security;
  * variables for configuration when deploying.
  */
 if (!env('APP_NAME') && file_exists(CONFIG . '.env')) {
-    $dotenv = new \josegonzalez\Dotenv\Loader([CONFIG . '.env']);
-    $dotenv->parse()
-        ->putenv()
-        ->toEnv()
-        ->toServer();
+	$dotenv = new \josegonzalez\Dotenv\Loader([CONFIG . '.env']);
+	$dotenv->parse()
+		->putenv()
+		->toEnv()
+		->toServer();
 }
 
 /*
@@ -67,10 +67,10 @@ if (!env('APP_NAME') && file_exists(CONFIG . '.env')) {
  * that changes from configuration that does not. This makes deployment simpler.
  */
 try {
-    Configure::config('default', new PhpConfig());
-    Configure::load('app', 'default', false);
+	Configure::config('default', new PhpConfig());
+	Configure::load('app', 'default', false);
 } catch (\Exception $e) {
-    exit($e->getMessage() . "\n");
+	exit($e->getMessage() . "\n");
 }
 
 /*
@@ -85,8 +85,8 @@ try {
  * for a short time.
  */
 if (Configure::read('debug')) {
-    Configure::write('Cache._cake_model_.duration', '+2 minutes');
-    Configure::write('Cache._cake_core_.duration', '+2 minutes');
+	Configure::write('Cache._cake_model_.duration', '+2 minutes');
+	Configure::write('Cache._cake_core_.duration', '+2 minutes');
 }
 
 /*
@@ -112,16 +112,16 @@ ini_set('intl.default_locale', Configure::read('App.defaultLocale'));
  */
 $isCli = PHP_SAPI === 'cli';
 if ($isCli) {
-    (new ConsoleErrorHandler(Configure::read('Error')))->register();
+	(new ConsoleErrorHandler(Configure::read('Error')))->register();
 } else {
-    (new ErrorHandler(Configure::read('Error')))->register();
+	(new ErrorHandler(Configure::read('Error')))->register();
 }
 
 /*
  * Include the CLI bootstrap overrides.
  */
 if ($isCli) {
-    require __DIR__ . '/bootstrap_cli.php';
+	require __DIR__ . '/bootstrap_cli.php';
 }
 
 /*
@@ -131,16 +131,16 @@ if ($isCli) {
  * If you define fullBaseUrl in your config file you can remove this.
  */
 if (!Configure::read('App.fullBaseUrl')) {
-    $s = null;
-    if (env('HTTPS')) {
-        $s = 's';
-    }
+	$s = null;
+	if (env('HTTPS')) {
+		$s = 's';
+	}
 
-    $httpHost = env('HTTP_HOST');
-    if (isset($httpHost)) {
-        Configure::write('App.fullBaseUrl', 'http' . $s . '://' . $httpHost);
-    }
-    unset($httpHost, $s);
+	$httpHost = env('HTTP_HOST');
+	if (isset($httpHost)) {
+		Configure::write('App.fullBaseUrl', 'http' . $s . '://' . $httpHost);
+	}
+	unset($httpHost, $s);
 }
 
 Cache::setConfig(Configure::consume('Cache'));
@@ -161,14 +161,14 @@ Security::setSalt(Configure::consume('Security.salt'));
  * Setup detectors for mobile and tablet.
  */
 ServerRequest::addDetector('mobile', function ($request) {
-    $detector = new \Detection\MobileDetect();
+	$detector = new \Detection\MobileDetect();
 
-    return $detector->isMobile();
+	return $detector->isMobile();
 });
 ServerRequest::addDetector('tablet', function ($request) {
-    $detector = new \Detection\MobileDetect();
+	$detector = new \Detection\MobileDetect();
 
-    return $detector->isTablet();
+	return $detector->isTablet();
 });
 
 /*
@@ -179,14 +179,24 @@ ServerRequest::addDetector('tablet', function ($request) {
  * locale specific date formats. For details see
  * @link https://book.cakephp.org/3.0/en/core-libraries/internationalization-and-localization.html#parsing-localized-datetime-data
  */
-Type::build('time')
-    ->useImmutable();
-Type::build('date')
-    ->useImmutable();
-Type::build('datetime')
-    ->useImmutable();
-Type::build('timestamp')
-    ->useImmutable();
+date_default_timezone_set('America/Sao_Paulo');
+setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+
+Type::build('time')->useImmutable();
+Type::build('date')->useImmutable()->useLocaleParser();
+Type::build('datetime')->useImmutable()->useLocaleParser();
+Type::build('timestamp')->useImmutable();
+
+\Cake\I18n\Time::setToStringFormat('dd/MM/yyyy HH:mm:ss');
+\Cake\I18n\Date::setToStringFormat('dd/MM/yyyy');
+\Cake\I18n\FrozenTime::setToStringFormat('dd/MM/yyyy HH:mm:ss');
+\Cake\I18n\FrozenDate::setToStringFormat('dd/MM/yyyy');
+
+\Cake\I18n\I18n::locale('pt-BR'); // new !
+
+Type::build('decimal')->useLocaleParser();
+Type::build('float')->useLocaleParser();
+
 
 /*
  * Custom Inflector rules, can be set to correctly pluralize or singularize
@@ -209,21 +219,22 @@ Type::build('timestamp')
  */
 # AclManager PLlugin:
 
-    // Configuration for an schema based on Groups, Roles and Users
-    Configure::write('AclManager.aros', array('Groups', 'Roles', 'Users'));
+	// Configuration for an schema based on Groups, Roles and Users
+	Configure::write('AclManager.aros', array('Groups', 'Roles', 'Users'));
 
-    // Set prefix admin ( http://www.domain.com/admin/AclManager )
-    // Configure::write('AclManager.admin', true);
+	// Set prefix admin ( http://www.domain.com/admin/AclManager )
+	// Configure::write('AclManager.admin', true);
 
-    // Ignore all actions you don't want to add to your ACLs. The value of this parameter must be an array of actions. 
-    // Configure::write('AclManager.ignoreActions', array('isAuthorized','login','logout'));
+	// Ignore all actions you don't want to add to your ACLs. The value of this parameter must be an array of actions. 
+	// Configure::write('AclManager.ignoreActions', array('isAuthorized','login','logout'));
 
-    Plugin::load('Acl', ['bootstrap' => true]);
-    Plugin::load('AclManager', ['bootstrap' => true, 'routes' => true]);
+	Plugin::load('Acl', ['bootstrap' => true]);
+	Plugin::load('AclManager', ['bootstrap' => true, 'routes' => true]);
 
 # Outros
 
-    Plugin::load('AccessManager', ['bootstrap' => false, 'routes' => true]);
+	Plugin::load('AccessManager', ['bootstrap' => false, 'routes' => true]);
+	Plugin::load('AdminLTE', ['bootstrap' => true, 'routes' => true]);
 
 
 
@@ -233,5 +244,57 @@ Type::build('timestamp')
  * Debug Kit should not be installed on a production system
  */
 if (Configure::read('debug')) {
-    Plugin::load('DebugKit', ['bootstrap' => true]);
+	Plugin::load('DebugKit', ['bootstrap' => true]);
 }
+
+
+/**
+ * AdminLTE - Configurations
+ *
+ * @link https://github.com/maiconpinto/cakephp-adminlte-theme
+ *
+ **/
+$logo_icon = 'layout/logo-icon.png';
+$logo_vertical = 'layout/logo-vertical.png';
+$logo_default = 'layout/logo-default.png';
+
+Configure::write('Theme', [
+	'title' => 'Sistema Irrigo',
+	'logo' => [
+		'mini' => $logo_icon,
+		'vertical' => $logo_vertical,
+		'default' => $logo_default
+	],
+	'login' => [
+		'show_remember' => true,
+		'show_register' => false,
+		'show_social' => false
+	],
+	'layout' => 'top', // or default
+	'skin' => 'white', // default is 'blue'
+	'folder' => ROOT
+]);
+
+
+/**
+ * Menus for user roles
+ *
+ *
+ **/
+Configure::write('Menu', [
+	1 => [ // role_id
+		0 => [
+			'title'=>'Acessos e Permissões',
+			'links' => [
+				'Usuários' => ['controller'=>'Users', 'action'=>'index', 'plugin'=>'AccessManager'],
+				'Funções' => ['controller'=>'Roles', 'action'=>'index', 'plugin'=>'AccessManager'],
+				'Grupos' => ['controller'=>'Groups', 'action'=>'index', 'plugin'=>'AccessManager'],
+				'sep'=>'sep',
+				'Acl Manager' => ['controller'=>'Acl', 'action'=>'index', 'plugin'=>'AclManager']
+			]
+		],
+	],
+	2 => [ // other user
+		// ...
+	],
+]);

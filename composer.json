@@ -12,7 +12,8 @@
         "cakephp/plugin-installer": "~1.0",
         "josegonzalez/dotenv": "2.*",
         "ivanamat/cakephp3-aclmanager": "^1.2",
-        "maiconpinto/cakephp-adminlte-theme": "^1.0"
+        "maiconpinto/cakephp-adminlte-theme": "^1.0",
+        "andersoncorso/cakephp-plugin-access_manager": "dev-master"
     },
     "require-dev": {
         "psy/psysh": "@stable",
@@ -28,15 +29,13 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src",
-            "AccessManager\\": "./plugins/AccessManager/src"
+            "App\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "App\\Test\\": "tests",
-            "Cake\\Test\\": "./vendor/cakephp/cakephp/tests",
-            "AccessManager\\Test\\": "./plugins/AccessManager/tests"
+            "Cake\\Test\\": "./vendor/cakephp/cakephp/tests"
         }
     },
     "scripts": {

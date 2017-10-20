@@ -4,8 +4,41 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3bac0d7a00b0ee84c33e3b8244d14444",
+    "content-hash": "3aee8bcba9af60b128f238bdff9d5533",
     "packages": [
+        {
+            "name": "andersoncorso/cakephp-plugin-access_manager",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andersoncorso/cakephp-plugin-access_manager.git",
+                "reference": "292cf937411c948eb8ad168a756657ecc71cced3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andersoncorso/cakephp-plugin-access_manager/zipball/292cf937411c948eb8ad168a756657ecc71cced3",
+                "reference": "292cf937411c948eb8ad168a756657ecc71cced3",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "^3.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7|^6.0"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "AccessManager\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "AccessManager plugin for CakePHP",
+            "time": "2017-10-20T17:14:34+00:00"
+        },
         {
             "name": "aura/intl",
             "version": "3.0.0",
@@ -1977,16 +2010,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.8.12",
+            "version": "v0.8.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "1502354ebc70d59d8e3a87c325b0eb78a79da25b"
+                "reference": "cdb5593c3684bab74e10fcfffe4a0c8d1c39695d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/1502354ebc70d59d8e3a87c325b0eb78a79da25b",
-                "reference": "1502354ebc70d59d8e3a87c325b0eb78a79da25b",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/cdb5593c3684bab74e10fcfffe4a0c8d1c39695d",
+                "reference": "cdb5593c3684bab74e10fcfffe4a0c8d1c39695d",
                 "shasum": ""
             },
             "require": {
@@ -2046,7 +2079,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2017-10-14T17:14:13+00:00"
+            "time": "2017-10-19T06:13:20+00:00"
         },
         {
             "name": "seld/cli-prompt",
@@ -2410,6 +2443,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "andersoncorso/cakephp-plugin-access_manager": 20,
         "psy/psysh": 0
     },
     "prefer-stable": true,

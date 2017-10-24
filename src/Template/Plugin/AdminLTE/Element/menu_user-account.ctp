@@ -34,15 +34,18 @@
 		<!-- Menu Footer-->
 		<li class="user-footer">
 			<div class="pull-left">
-				<?php 
-					echo $this->Html->link('Editar',
-						['controller'=>'Users', 'action'=>'userProfile', 'plugin'=>'AccessManager'],
-						['class'=>'btn btn-default btn-flat', 'escape'=>false, '_full'=>false]
-					);
+				<?php
+					//if($this->request->session()->read('Auth.User.profile')){
+						
+						echo $this->Html->link('Editar',
+							['controller'=>'Users', 'action'=>'userProfile', 'plugin'=>'AccessManager'],
+							['class'=>'btn btn-default btn-flat', 'escape'=>false, '_full'=>false]
+						);
+					//}
 				?>
 			</div>
 			<div class="pull-right">
-				<?php 
+				<?php
 					echo $this->Html->link('<i class="fa fa-sign-out"></i> Sair',
 						['controller'=>'Users', 'action'=>'logout', 'plugin'=>'AccessManager'],
 						['class'=>'btn btn-default btn-flat', 'escape'=>false, '_full'=>false]

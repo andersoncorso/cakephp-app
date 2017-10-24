@@ -56,7 +56,8 @@ class AppController extends Controller
 			],
 			'authenticate' => [
 				'Form' => [
-					// 'finder' => 'auth',
+					'userModel' => 'AccessManager.Users',
+					'finder' => 'auth',
 					'fields' => [
 						'username' => 'email', 'password' => 'password'
 					],
@@ -90,7 +91,7 @@ class AppController extends Controller
 		]);
 		
 		// Only for ACL setup
-		// $this->Auth->allow();
+		$this->Auth->allow();
 	}
 
 	/**
@@ -111,23 +112,19 @@ class AppController extends Controller
 	 * @param \Cake\Event\Event $event The beforeRender event.
 	 * @return \Cake\Http\Response|null|void
 	 */
-	public function beforeRender(Event $event)
-	{
-		// Note: These defaults are just to get started quickly with development
-		// and should not be used in production. You should instead set "_serialize"
-		// in each action as required.
-		if (!array_key_exists('_serialize', $this->viewVars) &&
-			in_array($this->response->type(), ['application/json', 'application/xml'])
-		) {
-			$this->set('_serialize', true);
+	public function beforeRender(Event $event) {
+		parent::beforeRender($event);
+		
+		// Evita o AdminLTE theme and layout quando houver as extensoes.
+		if( $this->request->params['_ext'] != 'pdf' and  $this->request->params['_ext'] != 'json'){
+
+			$this->viewBuilder()->theme('AdminLTE');
+			if(Configure::read('Theme.layout'))
+				$this->viewBuilder()->layout('AdminLTE.'.Configure::read('Theme.layout')); // opcional
+
+			// AdminLTE - Customize layout
+			$this->viewBuilder()->className('AdminLTE.AdminLTE');
 		}
-
-		$this->viewBuilder()->theme('AdminLTE');
-		if(Configure::read('Theme.layout'))
-			$this->viewBuilder()->layout('AdminLTE.'.Configure::read('Theme.layout')); // opcional
-
-		// AdminLTE - Customize layout
-		$this->viewBuilder()->className('AdminLTE.AdminLTE');
 	}
 
 	/**

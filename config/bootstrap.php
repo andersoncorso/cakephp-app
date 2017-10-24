@@ -235,6 +235,7 @@ Type::build('float')->useLocaleParser();
 
 	Plugin::load('AccessManager', ['bootstrap' => false, 'routes' => true]);
 	Plugin::load('AdminLTE', ['bootstrap' => true, 'routes' => true]);
+	Plugin::load('Places', ['routes' => true]);
 
 
 

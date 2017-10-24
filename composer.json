@@ -13,7 +13,8 @@
         "josegonzalez/dotenv": "2.*",
         "ivanamat/cakephp3-aclmanager": "^1.2",
         "maiconpinto/cakephp-adminlte-theme": "^1.0",
-        "andersoncorso/cakephp-plugin-access_manager": "dev-master"
+        "andersoncorso/cakephp-plugin-access_manager": "dev-master",
+        "andersoncorso/cakephp-plugin_places": "dev-master"
     },
     "require-dev": {
         "psy/psysh": "@stable",

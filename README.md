@@ -45,6 +45,14 @@ config/schema/acl_manager.sql
 // $this->Auth->allow();
 ```
 
+### Plugin [Places](https://github.com/andersoncorso/cakephp-plugin_places):
+
+- importe o arquivo de banco de dados com a estrutura e dados de Regiões, Estados e Municípios
+```
+vendor/andersoncorso/cakephp-plugin_places/config/schema/cakephp_plugin-places.sql
+```
+
+
 ## Layout
 
 ### Tema [AdminLTE](https://github.com/maiconpinto/cakephp-adminlte-theme);

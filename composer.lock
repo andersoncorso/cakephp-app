@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3aee8bcba9af60b128f238bdff9d5533",
+    "content-hash": "31463872b69ddc3635a344d60a67244b",
     "packages": [
         {
             "name": "andersoncorso/cakephp-plugin-access_manager",
@@ -12,19 +12,13 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/andersoncorso/cakephp-plugin-access_manager.git",
-                "reference": "292cf937411c948eb8ad168a756657ecc71cced3"
+                "reference": "34667d47bdfb5403cd3717857494eba27356f0b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andersoncorso/cakephp-plugin-access_manager/zipball/292cf937411c948eb8ad168a756657ecc71cced3",
-                "reference": "292cf937411c948eb8ad168a756657ecc71cced3",
+                "url": "https://api.github.com/repos/andersoncorso/cakephp-plugin-access_manager/zipball/34667d47bdfb5403cd3717857494eba27356f0b1",
+                "reference": "34667d47bdfb5403cd3717857494eba27356f0b1",
                 "shasum": ""
-            },
-            "require": {
-                "cakephp/cakephp": "^3.4"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.7|^6.0"
             },
             "type": "cakephp-plugin",
             "autoload": {
@@ -37,7 +31,34 @@
                 "MIT"
             ],
             "description": "AccessManager plugin for CakePHP",
-            "time": "2017-10-20T17:14:34+00:00"
+            "time": "2017-10-23T18:15:47+00:00"
+        },
+        {
+            "name": "andersoncorso/cakephp-plugin_places",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andersoncorso/cakephp-plugin_places.git",
+                "reference": "fc3766ec5b4caa8311be385f763b56305de31f7c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andersoncorso/cakephp-plugin_places/zipball/fc3766ec5b4caa8311be385f763b56305de31f7c",
+                "reference": "fc3766ec5b4caa8311be385f763b56305de31f7c",
+                "shasum": ""
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "Places\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Places plugin for CakePHP",
+            "time": "2017-10-23T17:48:35+00:00"
         },
         {
             "name": "aura/intl",
@@ -1893,16 +1914,16 @@
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "5.2.5",
+            "version": "5.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/justinrainbow/json-schema.git",
-                "reference": "0d4fda8efdf216ade084a7f0aad5637572ce9835"
+                "reference": "d283e11b6e14c6f4664cf080415c4341293e5bbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/0d4fda8efdf216ade084a7f0aad5637572ce9835",
-                "reference": "0d4fda8efdf216ade084a7f0aad5637572ce9835",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/d283e11b6e14c6f4664cf080415c4341293e5bbd",
+                "reference": "d283e11b6e14c6f4664cf080415c4341293e5bbd",
                 "shasum": ""
             },
             "require": {
@@ -1955,7 +1976,7 @@
                 "json",
                 "schema"
             ],
-            "time": "2017-10-10T13:22:37+00:00"
+            "time": "2017-10-21T13:15:38+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -2444,6 +2465,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "andersoncorso/cakephp-plugin-access_manager": 20,
+        "andersoncorso/cakephp-plugin_places": 20,
         "psy/psysh": 0
     },
     "prefer-stable": true,

@@ -40,17 +40,6 @@
 </head>
 <body class="hold-transition login-page">
 	
-	<?php if($this->request->session()->read('Flash')): ?>
-	<div class="row">
-		<div class="col-xs-12 col-md-4 col-md-offset-4">
-			<?php 
-				echo $this->Flash->render();
-				echo $this->Flash->render('auth');
-			?>
-		</div>
-	</div>
-	<?php endif; ?>
-	
 	<div class="login-box">
 		<div class="login-logo">
 			<a href="<?php echo $this->Url->build(array('controller' => 'pages', 'action' => 'display', 'home')); ?>">
@@ -58,43 +47,28 @@
 			</a>
 		</div>
 		<div class="login-box-body">
-			
-			<p class="login-box-msg">
-				<?= __('Faça login para iniciar sua sessão') ?>
-			</p>
+									
+			<?php if($this->request->session()->read('Flash')): ?>
+				<div class="row">
+					<?= $this->Flash->render(); ?>
+					<?= $this->Flash->render('auth'); ?>
+				</div>
+			<?php else: ?>
+				<p class="login-box-msg">
+					<?= __('Faça login para iniciar sua sessão') ?>
+				</p>
+			<?php endif; ?>
 
 			<?php echo $this->fetch('content'); ?>
+
 			<br>
-			<?php if (Configure::read('Theme.login.show_remember')): ?>
+			<?php if(Configure::read('Theme.login.show_remember')): ?>
 				<p class="text-right">
 					<a href="#"><?php echo __('Recuperar senha') ?></a><br>
 				</p>
 			<?php endif; ?>
-			<p class="text-right">
-				Dúvidas ou Sugestões, entre em
-				<a href="https://www.irrigoias.com.br/fale-conosco" target="_blank"><?php echo __('Contato') ?></a><br>
-			</p>
 		</div>
 	</div>
-
-	<!-- jQuery 2.2.3 -->
-	<?php echo $this->Html->script('AdminLTE./plugins/jQuery/jquery-2.2.3.min'); ?>
-	
-	<!-- Bootstrap 3.3.6 -->
-	<?php echo $this->Html->script('AdminLTE./bootstrap/js/bootstrap.min'); ?>
-	
-	<!-- iCheck -->
-	<?php echo $this->Html->script('AdminLTE./plugins/iCheck/icheck.min'); ?>
-	
-	<script>
-		$(function () {
-			$('input').iCheck({
-				checkboxClass: 'icheckbox_square-blue',
-				radioClass: 'iradio_square-blue',
-				increaseArea: '20%' // optional
-			});
-		});
-	</script>
 
 </body>
 </html>

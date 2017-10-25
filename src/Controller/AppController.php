@@ -91,7 +91,7 @@ class AppController extends Controller
 		]);
 		
 		// Only for ACL setup
-		$this->Auth->allow();
+		// $this->Auth->allow();
 	}
 
 	/**

@@ -24,7 +24,11 @@ composer update
 ### CakePHP 3x:
 
 - Renomeie o arquivo `config/app.default.php` para `config/app.php`;
-- Abra o arquivo e configure o `'SECURITY_SALT'` e também o `'Datasources'` alem de qualquer outra configuração relevante.
+- Execute o comando abaixo no console para gerar o 'SECURITY_SALT' automático:
+```
+bin/cake salt
+```
+- Abra o arquivo e configure o `'Datasources'` alem de qualquer outra configuração relevante.
 
 ### Plugin [AclManager](https://github.com/ivanamat/cakephp3-aclmanager):
 
@@ -33,12 +37,14 @@ composer update
 bin/cake migrations migrate -p Acl
 ```
 
-- importe o arquivo de banco de dados com a estrutura de Groups, Roles and Users
+### Plugin [AccessManager](https://github.com/andersoncorso/cakephp-plugin-access_manager):
+
+- importe a estrutura de Banco de Dados
 ```
-config/schema/acl_manager.sql
+bin/cake migrations migrate -p AccessManager
 ```
 
-- crie registros de 'Groups', 'Roles' e 'Users' acessando a url '...localhost/meuapp/access-manager/groups';
+- crie registros de 'Groups', 'Roles' e 'Users' acessando a url '...localhost/meuapp/access-manager/groups', 'roles' e 'users';
 - acesse o plugin pela url '...localhost/meuapp/AclManager' e clique no link 'Update ACOs and AROs and set default values';
 - comente ou exclua a seguinte linha no 'src/Controller/AppController.php':
 ```

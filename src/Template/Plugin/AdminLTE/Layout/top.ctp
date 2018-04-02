@@ -15,14 +15,16 @@
 	<?php echo $this->Html->css('AdminLTE./bootstrap/css/bootstrap.min'); ?>
 	
 	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<!-- Ionicons -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 	
 	<!-- Theme style and skin -->
 	<?php echo $this->Html->css('AdminLTE.AdminLTE.min'); ?>
-	<?php echo $this->Html->css('AdminLTE.skins/skin-'.Configure::read('Theme.skin')); ?>
+	<!-- only theme skins in ROOT weboot -->
+	<?php echo $this->Html->css('AdminLTE/AdminLTE-theme_irrigo'); ?>
+	<?php echo $this->Html->css('AdminLTE/skins/skin-'.Configure::read('Theme.skin')); ?>
 	
 	<!-- Default style -->
 	<?php echo $this->Html->css('default'); ?>
@@ -84,6 +86,23 @@
 	<?php echo $this->fetch('scriptBottom'); ?>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			
+			// Active current item menu
+			$(".navbar .menu").slimscroll({
+				height: "200px",
+				alwaysVisible: false,
+				size: "3px"
+			}).css("width", "100%");
+
+			var a = $('a[href="<?php echo $this->request->webroot . $this->request->url ?>"]');
+			if (!a.parent().hasClass('treeview') && !a.parent().parent().hasClass('pagination')) {
+				a.parent().addClass('active').parents('.treeview').addClass('active');
+			}
+
+			// Loading Button
+			$('form').on('submit', function(e) {
+				var btn = $('#loadButton').button('loading')
+			});
 		});
 	</script>
 	

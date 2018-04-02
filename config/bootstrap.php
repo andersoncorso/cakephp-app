@@ -260,7 +260,7 @@ $logo_vertical = 'layout/logo-vertical.png';
 $logo_default = 'layout/logo-default.png';
 
 Configure::write('Theme', [
-	'title' => 'Sistema Irrigo',
+	'title' => 'CakePHP App',
 	'logo' => [
 		'mini' => $logo_icon,
 		'vertical' => $logo_vertical,

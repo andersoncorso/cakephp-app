@@ -42,7 +42,7 @@
 	
 	<div class="login-box">
 		<div class="login-logo">
-			<a href="<?php echo $this->Url->build(array('controller' => 'pages', 'action' => 'display', 'home')); ?>">
+			<a href="<?php echo $this->Url->build(array('controller'=>'pages', 'action'=>'display', 'home', 'plugin'=>false)); ?>">
 				<?php echo $this->Html->image(Configure::read('Theme.logo.default')); ?>
 			</a>
 		</div>
@@ -69,6 +69,22 @@
 			<?php endif; ?>
 		</div>
 	</div>
+
+	<!-- jQuery 2.2.3 -->
+	<?php echo $this->Html->script('AdminLTE./plugins/jQuery/jquery-2.2.3.min'); ?>
+	
+	<!-- Bootstrap 3.3.5 -->
+	<?php echo $this->Html->script('AdminLTE./bootstrap/js/bootstrap.min'); ?>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			// Loading Button
+			$('form').on('submit', function(e) {
+				var btn = $('#loadButton').button('loading')
+			});
+		});
+	</script>
 
 </body>
 </html>

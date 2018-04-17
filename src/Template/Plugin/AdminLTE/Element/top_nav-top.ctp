@@ -57,12 +57,27 @@
 		<!-- Navbar Right Menu -->
 		<div class="navbar-custom-menu">
 			<ul class="nav navbar-nav">
+			<?php if($this->request->session()->read('Auth.User')): ?>
+
 				<!-- Notifications: style can be found in dropdown.less -->
 				<?php echo $this->element('notifications'); ?>
 				<!-- Tasks: style can be found in dropdown.less -->
 				<?php echo $this->element('tasks'); ?>
 				<!-- User Account Menu -->
 				<?php echo $this->element('menu_user-account'); ?>
+
+			<?php else: ?>
+				
+				<li class="dropdown user user-menu">
+				<?php 
+					echo $this->Html->link('<i class="fa fa-unlock"></i> Login', 
+						['controller'=>'Users', 'action'=>'login', 'plugin'=>'AccessManager'],
+						['class'=>'', 'escape'=>false, '_full'=>false]
+					);
+				?>
+				</li>
+
+			<?php endif; ?>
 			</ul>
 		</div>
 

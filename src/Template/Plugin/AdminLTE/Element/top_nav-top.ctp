@@ -44,8 +44,9 @@
 						else{
 
 							// Link menu
-							$li = each($menu);
-							echo '<li>'.$this->Html->link($li['key'], $li['value'], ['escape'=>false]).'</li>';
+							$li_key = key($menu);
+							$li_url = current($menu);
+							echo '<li>'.$this->Html->link($li_key, $li_url, ['escape'=>false]).'</li>';
 						}
 					}
 				}

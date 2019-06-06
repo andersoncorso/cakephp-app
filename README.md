@@ -2,6 +2,7 @@
 
 Projeto CakePHP pronto para iniciar qualquer aplicação que necessite de Login e Controle de Acessos com ACL.
 
+v3.5
 
 ## Instalação
 

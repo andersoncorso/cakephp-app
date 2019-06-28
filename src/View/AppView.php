@@ -36,6 +36,5 @@ class AppView extends View
      */
     public function initialize()
     {
-        $this->loadHelper('Form', ['className' => 'AdminLTE.Form', 'templates'=>'form-template-horizontal']);
     }
 }

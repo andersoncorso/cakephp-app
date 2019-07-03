@@ -4,21 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "471f2a80bb9df07f539fd278084135ee",
+    "content-hash": "835e382c647c8eda70eee1ac7c23bbe9",
     "packages": [
         {
             "name": "andersoncorso/cakephp-plugin-access_manager",
-            "version": "1.0.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/andersoncorso/cakephp-plugin-access_manager.git",
-                "reference": "36a4df3947ea1ebf270c026cf421dda9e84804bf"
+                "reference": "a767184f54847573682a2d8345731950963bac61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andersoncorso/cakephp-plugin-access_manager/zipball/36a4df3947ea1ebf270c026cf421dda9e84804bf",
-                "reference": "36a4df3947ea1ebf270c026cf421dda9e84804bf",
+                "url": "https://api.github.com/repos/andersoncorso/cakephp-plugin-access_manager/zipball/a767184f54847573682a2d8345731950963bac61",
+                "reference": "a767184f54847573682a2d8345731950963bac61",
                 "shasum": ""
+            },
+            "require": {
+                "ivanamat/cakephp3-aclmanager": "1.*"
             },
             "type": "cakephp-plugin",
             "autoload": {
@@ -31,7 +34,7 @@
                 "MIT"
             ],
             "description": "AccessManager plugin for CakePHP",
-            "time": "2018-07-17T17:24:00+00:00"
+            "time": "2019-06-28T20:18:18+00:00"
         },
         {
             "name": "aura/intl",
@@ -78,6 +81,52 @@
                 "localization"
             ],
             "time": "2017-01-20T05:00:11+00:00"
+        },
+        {
+            "name": "cakephp/acl",
+            "version": "0.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cakephp/acl.git",
+                "reference": "4fe97ed45c1f32599988c7da317f9bbdd381d473"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cakephp/acl/zipball/4fe97ed45c1f32599988c7da317f9bbdd381d473",
+                "reference": "4fe97ed45c1f32599988c7da317f9bbdd381d473",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "^3.6.0",
+                "cakephp/plugin-installer": "*"
+            },
+            "require-dev": {
+                "cakephp/cakephp-codesniffer": "^3.0",
+                "phpunit/phpunit": "^5.7.14|^6.0"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "Acl\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "CakePHP Community",
+                    "homepage": "https://github.com/cakephp/acl/graphs/contributors"
+                }
+            ],
+            "description": "Acl Plugin for CakePHP 3.x framework",
+            "homepage": "http://cakephp.org",
+            "keywords": [
+                "acl",
+                "cakephp"
+            ],
+            "time": "2019-06-14T13:42:02+00:00"
         },
         {
             "name": "cakephp/cakephp",
@@ -318,6 +367,224 @@
             ],
             "description": "A composer installer for CakePHP 3.0+ plugins.",
             "time": "2017-12-24T21:09:29+00:00"
+        },
+        {
+            "name": "composer/installers",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/cfcca6b1b60bc4974324efb5783c13dca6932b5b",
+                "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0"
+            },
+            "replace": {
+                "roundcube/plugin-installer": "*",
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev",
+                "phpunit/phpunit": "^4.8.36"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Composer\\Installers\\Plugin",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "https://composer.github.io/installers/",
+            "keywords": [
+                "Craft",
+                "Dolibarr",
+                "Eliasis",
+                "Hurad",
+                "ImageCMS",
+                "Kanboard",
+                "Lan Management System",
+                "MODX Evo",
+                "Mautic",
+                "Maya",
+                "OXID",
+                "Plentymarkets",
+                "Porto",
+                "RadPHP",
+                "SMF",
+                "Thelia",
+                "WolfCMS",
+                "agl",
+                "aimeos",
+                "annotatecms",
+                "attogram",
+                "bitrix",
+                "cakephp",
+                "chef",
+                "cockpit",
+                "codeigniter",
+                "concrete5",
+                "croogo",
+                "dokuwiki",
+                "drupal",
+                "eZ Platform",
+                "elgg",
+                "expressionengine",
+                "fuelphp",
+                "grav",
+                "installer",
+                "itop",
+                "joomla",
+                "kohana",
+                "laravel",
+                "lavalite",
+                "lithium",
+                "magento",
+                "majima",
+                "mako",
+                "mediawiki",
+                "modulework",
+                "modx",
+                "moodle",
+                "osclass",
+                "phpbb",
+                "piwik",
+                "ppi",
+                "puppet",
+                "pxcms",
+                "reindex",
+                "roundcube",
+                "shopware",
+                "silverstripe",
+                "sydes",
+                "symfony",
+                "typo3",
+                "wordpress",
+                "yawik",
+                "zend",
+                "zikula"
+            ],
+            "time": "2018-08-27T06:10:37+00:00"
+        },
+        {
+            "name": "ivanamat/cakephp3-aclmanager",
+            "version": "1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ivanamat/cakephp3-aclmanager.git",
+                "reference": "bc6cfe9745ea5f7aae7da73a0cc6d976cbc57225"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ivanamat/cakephp3-aclmanager/zipball/bc6cfe9745ea5f7aae7da73a0cc6d976cbc57225",
+                "reference": "bc6cfe9745ea5f7aae7da73a0cc6d976cbc57225",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/acl": "~0.2",
+                "cakephp/cakephp": "~3.0",
+                "cakephp/plugin-installer": "~1.0",
+                "composer/installers": "*",
+                "php": ">=5.4.16"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "AclManager\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Amat",
+                    "homepage": "http://www.ivanamat.es",
+                    "role": "Author"
+                }
+            ],
+            "description": "AclManager plugin for CakePHP 3.x",
+            "homepage": "https://github.com/ivanamat/cakephp3-aclmanager",
+            "keywords": [
+                "acl",
+                "cake3",
+                "cakephp",
+                "cakephp3",
+                "manager",
+                "plugin"
+            ],
+            "time": "2018-02-18T14:16:07+00:00"
+        },
+        {
+            "name": "maiconpinto/cakephp-adminlte-theme",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maiconpinto/cakephp-adminlte-theme.git",
+                "reference": "4b8d7cd4ab895751176704f16443f4ace87b1fed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maiconpinto/cakephp-adminlte-theme/zipball/4b8d7cd4ab895751176704f16443f4ace87b1fed",
+                "reference": "4b8d7cd4ab895751176704f16443f4ace87b1fed",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "~3.0",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.1"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "AdminLTE\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maicon Pinto",
+                    "email": "maiconsilva.pinto@gmail.com",
+                    "homepage": "https://www.maiconpinto.com.br/",
+                    "role": "Author"
+                }
+            ],
+            "description": "CakePHP 3.x AdminLTE Theme.",
+            "homepage": "https://github.com/maiconpinto/cakephp-adminlte-theme",
+            "keywords": [
+                "cakephp",
+                "plugin",
+                "templates"
+            ],
+            "time": "2018-12-24T22:23:17+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
@@ -4351,6 +4618,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "andersoncorso/cakephp-plugin-access_manager": 20,
         "psy/psysh": 0
     },
     "prefer-stable": true,

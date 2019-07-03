@@ -69,6 +69,11 @@ Router::scope('/', function (RouteBuilder $routes) {
      */
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
+
+    # AccessManager
+    $routes->connect('/login', ['controller'=>'Users', 'action'=>'login', 'plugin'=>'AccessManager']);
+    $routes->connect('/logout', ['controller'=>'Users', 'action'=>'logout', 'plugin'=>'AccessManager']);
+
     /**
      * Connect catchall routes for all controllers.
      *

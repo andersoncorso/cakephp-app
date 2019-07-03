@@ -36,5 +36,8 @@ class AppView extends View
      */
     public function initialize()
     {
+
+        // Ativa o formulário do AdminLTE
+        $this->loadHelper('Form', ['className' => 'AdminLTE.Form']);
     }
 }

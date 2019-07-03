@@ -29,61 +29,76 @@ use Cake\Routing\Middleware\RoutingMiddleware;
  */
 class Application extends BaseApplication
 {
-    /**
-     * {@inheritDoc}
-     */
-    public function bootstrap()
-    {
+	/**
+	 * {@inheritDoc}
+	 */
+	public function bootstrap()
+	{
 
-        # PLUGINS
-        $this->addPlugin('AccessManager', ['bootstrap'=>true, 'routes'=>true]);
-        
-        // Call parent to load bootstrap from files.
-        parent::bootstrap();
+		# PLUGINS
+		$this->addPlugin('Acl', ['bootstrap'=>true]);
+		$this->addPlugin('AclManager', ['bootstrap'=>true, 'routes'=>true]);
+		$this->addPlugin('AccessManager', ['bootstrap'=>true, 'routes'=>true]);
+		$this->addPlugin('AdminLTE');
+		
+		# ACLMANAGER - configurações
 
-        if (PHP_SAPI === 'cli') {
-            try {
-                $this->addPlugin('Bake');
-            } catch (MissingPluginException $e) {
-                // Do not halt if the plugin is missing
-            }
+			// Configuration for an schema based on Groups, Roles and Users
+			Configure::write('AclManager.aros', array('Groups', 'Roles', 'Users'));
 
-            $this->addPlugin('Migrations');
-        }
+			// Set prefix admin ( http://www.domain.com/admin/AclManager )
+			// Configure::write('AclManager.admin', true);
 
-        /*
-         * Only try to load DebugKit in development mode
-         * Debug Kit should not be installed on a production system
-         */
-        if (Configure::read('debug')) {
-            $this->addPlugin(\DebugKit\Plugin::class);
-        }
-    }
+			// Ignore all actions you don't want to add to your ACLs. The value of this parameter must be an array of actions. 
+			// Configure::write('AclManager.ignoreActions', array('isAuthorized','login','logout'));
 
-    /**
-     * Setup the middleware queue your application will use.
-     *
-     * @param \Cake\Http\MiddlewareQueue $middlewareQueue The middleware queue to setup.
-     * @return \Cake\Http\MiddlewareQueue The updated middleware queue.
-     */
-    public function middleware($middlewareQueue)
-    {
-        $middlewareQueue
-            // Catch any exceptions in the lower layers,
-            // and make an error page/response
-            ->add(new ErrorHandlerMiddleware(null, Configure::read('Error')))
 
-            // Handle plugin/theme assets like CakePHP normally does.
-            ->add(new AssetMiddleware([
-                'cacheTime' => Configure::read('Asset.cacheTime')
-            ]))
+		// Call parent to load bootstrap from files.
+		parent::bootstrap();
 
-            // Add routing middleware.
-            // Routes collection cache enabled by default, to disable route caching
-            // pass null as cacheConfig, example: `new RoutingMiddleware($this)`
-            // you might want to disable this cache in case your routing is extremely simple
-            ->add(new RoutingMiddleware($this, '_cake_routes_'));
+		if (PHP_SAPI === 'cli') {
+			try {
+				$this->addPlugin('Bake');
+			} catch (MissingPluginException $e) {
+				// Do not halt if the plugin is missing
+			}
 
-        return $middlewareQueue;
-    }
+			$this->addPlugin('Migrations');
+		}
+
+		/*
+		 * Only try to load DebugKit in development mode
+		 * Debug Kit should not be installed on a production system
+		 */
+		if (Configure::read('debug')) {
+			$this->addPlugin(\DebugKit\Plugin::class);
+		}
+	}
+
+	/**
+	 * Setup the middleware queue your application will use.
+	 *
+	 * @param \Cake\Http\MiddlewareQueue $middlewareQueue The middleware queue to setup.
+	 * @return \Cake\Http\MiddlewareQueue The updated middleware queue.
+	 */
+	public function middleware($middlewareQueue)
+	{
+		$middlewareQueue
+			// Catch any exceptions in the lower layers,
+			// and make an error page/response
+			->add(new ErrorHandlerMiddleware(null, Configure::read('Error')))
+
+			// Handle plugin/theme assets like CakePHP normally does.
+			->add(new AssetMiddleware([
+				'cacheTime' => Configure::read('Asset.cacheTime')
+			]))
+
+			// Add routing middleware.
+			// Routes collection cache enabled by default, to disable route caching
+			// pass null as cacheConfig, example: `new RoutingMiddleware($this)`
+			// you might want to disable this cache in case your routing is extremely simple
+			->add(new RoutingMiddleware($this, '_cake_routes_'));
+
+		return $middlewareQueue;
+	}
 }

@@ -51,9 +51,9 @@
 	
 	<!-- Main content -->
 	<div id="maincontent">
-		<?php echo $this->Flash->render(); ?>
-		<?php echo $this->Flash->render('auth'); ?>
-		<?php echo $this->fetch('content'); ?>
+		<?= $this->Flash->render(); ?>
+		<?= $this->Flash->render('auth'); ?>
+		<?= $this->fetch('content'); ?>
 	</div>
 
 	<!-- jQuery 3 -->

@@ -1,5 +1,4 @@
 <?php 
-
 /**
  * CakePHP 3.x - Acl Manager
  * 
@@ -17,13 +16,11 @@
  * @license MIT http://opensource.org/licenses/MIT
  * @link https://github.com/ivanamat/cakephp3-aclmanager
  */
-
-echo $this->Html->css('AclManager.default',['inline' => false]); 
 ?>
 
 <!-- page header --> 
 <section class="content-header">
-	<h1><?= __('CakePHP 3.x - Acl Manager') ?></h1>
+	<h1><?= __('Acl Manager') ?></h1>
 </section>
 
 <!-- page content -->

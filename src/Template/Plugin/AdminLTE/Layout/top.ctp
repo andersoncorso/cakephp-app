@@ -63,7 +63,9 @@
 			<?php else: ?>
 				<div class="container">
 					<br>
-					<?php echo $this->fetch('content'); ?>
+					<?= $this->Flash->render(); ?>
+					<?= $this->Flash->render('auth'); ?>
+					<?= $this->fetch('content'); ?>
 				</div>
 			<?php endif; ?>
 

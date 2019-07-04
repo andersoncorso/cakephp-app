@@ -205,3 +205,6 @@ Type::build('timestamp')
 
 # AdminLTE Configurations
 Configure::load('adminlte', 'default');
+
+# Menu de usuários
+Configure::load('menu', 'default');

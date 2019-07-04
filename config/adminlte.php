@@ -18,7 +18,7 @@ return [
 			'default' => $logo_default
 		],
 		'login' => [
-			'show_remember' => false,
+			'show_remember' => true,
 			'show_register' => false,
 			'show_social' => false
 		],

@@ -1,47 +1,75 @@
-<div class="AclManager index large-12 medium-12 columns content">
-    
-    <h2>
-    	<?php echo __('PERMISSÕES DE ACESSOS'); ?>
-    	<br>
-    	<small>Permissões de acessos de Grupos, Funções e Usuários ao metodos dos controllers</small>
-    </h2>
-	
-	<!-- content -->
-	<div class="content">
-		<div class="large-2 columns">
-			<div class="panel">
-				<h3><?= __('GERENCIAR'); ?></h3>
-				<ul>
-					<?php foreach ($manage as $k => $item): ?>
-						<li><?= $this->Html->link(__('{0}', $item), ['controller'=>'Acl', 'action'=>'Permissions', $item]); ?></li>
-					<?php endforeach; ?>
-				</ul>
+<?php 
+
+/**
+ * CakePHP 3.x - Acl Manager
+ * 
+ * PHP version 5
+ * 
+ * index.ctp
+ *
+ * Licensed under The MIT License
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @category CakePHP3
+ * 
+ * @author Ivan Amat <dev@ivanamat.es>
+ * @copyright Copyright 2016, Iván Amat
+ * @license MIT http://opensource.org/licenses/MIT
+ * @link https://github.com/ivanamat/cakephp3-aclmanager
+ */
+
+echo $this->Html->css('AclManager.default',['inline' => false]); 
+?>
+
+<!-- page header --> 
+<section class="content-header">
+	<h1><?= __('CakePHP 3.x - Acl Manager') ?></h1>
+</section>
+
+<!-- page content -->
+<section class="content">
+	<div class="row">
+		
+		<!-- Tools -->
+		<div class="col-xs-12">
+			<div class="box box-primary">
+				<div class="box-body">
+					
+					<div class="col-sm-4">
+						<h3><?php echo __('Manage'); ?></h3>
+						<ul class="options">
+							<?php foreach ($manage as $k => $item): ?>
+							<li><?php echo $this->Html->link(__('Manage {0}', strtolower($item)), ['controller' => 'Acl', 'action' => 'Permissions', $item]); ?></li>
+							<?php endforeach; ?>
+						</ul>
+					</div>
+					
+					<div class="col-sm-4">
+						<h3><?php echo __('Update'); ?></h3>
+						<ul class="options">
+							<li><?php echo $this->Html->link(__('Update ACOs'), ['controller' => 'Acl', 'action' => 'UpdateAcos']); ?></li>
+							<li><?php echo $this->Html->link(__('Update AROs'), ['controller' => 'Acl', 'action' => 'UpdateAros']); ?></li>
+						</ul>
+					</div>
+					
+					<div class="col-sm-4">
+						<h3><?php echo __('Drop and restore'); ?></h3>
+						<ul class="options">
+							<li><?php echo $this->Html->link(__('Revoke permissions and set defaults'), ['controller' => 'Acl', 'action' => 'RevokePerms'], ['confirm' => __('Do you really want to revoke all permissions? This will remove all above assigned permissions and set defaults. Only first item of last ARO will have access to panel.')]); ?></li>
+							<li><?php echo $this->Html->link(__('Drop ACOs and AROs'), ['controller' => 'Acl', 'action' => 'drop'], ['confirm' => __('Do you really want delete ACOs and AROs? This will remove all above assigned permissions.')]); ?></li>
+							<li><?php echo $this->Html->link(__('Update ACOs and AROs and set default values'), ['controller' => 'Acl', 'action' => 'defaults'], ['confirm' => __('Do you want restore defaults? This will remove all above assigned permissions. Only first item of last ARO will have access to panel.')]); ?></li>
+						</ul>
+					</div>
+
+				</div>
 			</div>
 		</div>
-		<div class="large-2 columns">
-			<div class="panel">
-				<h3><?= __('ATUALIZAR'); ?></h3>
-				<ul class="options">
-					<li><?php echo $this->Html->link(__('Atualizar ACOs'), ['controller' => 'Acl', 'action' => 'UpdateAcos']); ?></li>
-					<li><?php echo $this->Html->link(__('Atualizar AROs'), ['controller' => 'Acl', 'action' => 'UpdateAros']); ?></li>
-				</ul>
-			</div>
+		
+		<!-- About -->
+		<div class="col-xs-12">
+			<h4><?php echo __('About CakePHP 3.x - Acl Manager'); ?></h4>
+			<p><?php echo $this->Html->link(__('CakePHP 3.x - Acl Manager on GitHub'), ['url' => 'https://github.com/ivanamat/cakephp3-aclmanager', 'target' => '_blank']); ?></p>			
 		</div>
-		<div class="large-4 columns">
-			<div class="panel">
-				<h3><?= __('APAGAR E RESTAURAR'); ?></h3>
-				<ul class="options">
-					<li><?php echo $this->Html->link(__('Revogar permissões e definir padrões'), ['controller' => 'Acl', 'action' => 'RevokePerms'], ['confirm' => __('Você realmente quer revogar todas as permissões? Isso removerá todas as permissões atribuídas acima e definirá os padrões. Apenas o primeiro item do último ARO terá acesso ao painel.')]); ?></li>
-					<li><?php echo $this->Html->link(__('Apagar ACOs e AROs'), ['controller' => 'Acl', 'action' => 'drop'], ['confirm' => __('Você realmente quer excluir ACOs e AROs? Isso removerá todas as permissões atribuídas acima.')]); ?></li>
-					<li><?php echo $this->Html->link(__('Atualizar ACOs e AROs e definir valores padrões.'), ['controller' => 'Acl', 'action' => 'defaults'], ['confirm' => __('Você quer restaurar os padrões? Isso removerá todas as permissões atribuídas acima. Apenas o primeiro item do último ARO terá acesso ao painel.')]); ?></li>
-				</ul>
-			</div>
-		</div>
-		<div class="large-4 columns">
-			<div class="panel">
-				<h3><?= __('SOBRE O PLUGIN'); ?></h3>
-				<p><?php echo $this->Html->link(__('CakePHP 3.x - Acl Manager on GitHub'), ['url' => 'https://github.com/ivanamat/cakephp3-aclmanager', 'target' => '_blank']); ?></p>
-			</div>
-		</div>
+
 	</div>
-</div>
+</section>

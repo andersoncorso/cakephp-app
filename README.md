@@ -1,7 +1,7 @@
 # CakePHP App
 
 [![Total Downloads](https://img.shields.io/packagist/dt/andersoncorso/cakephp-app.svg?style=flat-square)](https://packagist.org/packages/andersoncorso/cakephp-app)
-[![GitHub release](https://img.shields.io/github/release/andersoncorso/cakephp-app.svg)](https://packagist.org/packages/andersoncorso/cakephp-app)
+[![GitHub release](https://img.shields.io/github/release/andersoncorso/cakephp-app.svg?style=flat-square)](https://packagist.org/packages/andersoncorso/cakephp-app)
 
 Projeto [CakePHP](https://cakephp.org) com sistema de login e controle de acessos ACL, pronto para iniciar o desenvolvimento de um novo projeto.
 

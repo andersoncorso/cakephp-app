@@ -1,11 +1,8 @@
 <?php use Cake\I18n\Time; ?>
 <footer class="main-footer text-muted">
-    <div class="pull-right hidden-xs">
-        Versão <strong>1.0</strong>
-    </div>
 	<?php $now = Time::now(); ?>
-    &copy; 2019/<?= $now->year ?> - Desenvolvido por
+    &copy; <?= $now->year ?> - Desenvolvido por
     <strong>
-    	<a href="http://www.completta.net/marketing" target="_blank" class="text-muted">Completta Marketing</a>
+    	<a href="https://github.com/andersoncorso/cakephp-app" target="_blank" class="text-muted">Anderson Corso</a>
     </strong>
 </footer>

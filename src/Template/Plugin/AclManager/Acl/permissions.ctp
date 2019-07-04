@@ -1,11 +1,10 @@
 <?php 
-
 /**
  * CakePHP 3.x - Acl Manager
  * 
  * PHP version 5
  * 
- * permissions.ctp
+ * index.ctp
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
@@ -18,16 +17,15 @@
  * @link https://github.com/ivanamat/cakephp3-aclmanager
  */
 
-use Cake\Core\Configure; 
-use Cake\Utility\Inflector;
+	use Cake\Core\Configure;
+	use Cake\Utility\Inflector;
 
-echo $this->Html->css('AclManager.default',['inline' => false]);
-
+	echo $this->Html->css('AclManager.default',['inline' => false]);
 ?>
 
 <!-- page header --> 
 <section class="content-header">
-	<h1><?php echo $this->Html->link(__('CakePHP 3.x - Acl Manager'),['action' => 'index']); ?></h1>
+	<h1><?php echo $this->Html->link(__('Acl Manager'),['action' => 'index']); ?></h1>
 </section>
 
 <!-- page content -->
@@ -78,7 +76,8 @@ echo $this->Html->css('AclManager.default',['inline' => false]);
 					<hr />
 					
 					<?php echo $this->Form->create('Perms'); ?>
-					<table>
+					
+					<table class="table table-bordered table-striped">
 						<thead>
 							<tr>
 								<th>Action</th>
@@ -185,6 +184,7 @@ echo $this->Html->css('AclManager.default',['inline' => false]);
 							 <button type="submit" class="btn btn-primary right"><?php echo __("Save"); ?></button>
 						</div>
 					</div>
+
 					<?php echo $this->Form->end(); ?>
 					
 				</div>

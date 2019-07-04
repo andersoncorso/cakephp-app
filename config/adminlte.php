@@ -23,7 +23,7 @@ return [
 			'show_social' => false
 		],
 		'folder' => ROOT,
-		'skin' => 'black', // blue is default
+		'skin' => 'blue', // blue is default
 		'layout' => 'top' // or default
 	]
 ];

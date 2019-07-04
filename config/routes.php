@@ -73,6 +73,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     # AccessManager
     $routes->connect('/login', ['controller'=>'Users', 'action'=>'login', 'plugin'=>'AccessManager']);
     $routes->connect('/logout', ['controller'=>'Users', 'action'=>'logout', 'plugin'=>'AccessManager']);
+    $routes->connect('/recuperar-senha', ['controller'=>'Users', 'action'=>'recoverPassword', 'plugin'=>'AccessManager']);
 
     /**
      * Connect catchall routes for all controllers.

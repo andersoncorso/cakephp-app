@@ -25,7 +25,7 @@
 
 <!-- page header --> 
 <section class="content-header">
-	<h1><?php echo $this->Html->link(__('Acl Manager'),['action' => 'index']); ?></h1>
+	<h1><?php echo $this->Html->link(__d('AclManager', 'Acl Manager'),['action' => 'index']); ?></h1>
 </section>
 
 <!-- page content -->
@@ -38,28 +38,28 @@
 				<div class="box-body">
 					
 					<div class="col-sm-4">
-						<h3><?php echo __('Manage'); ?></h3>
+						<h3><?php echo __d('AclManager', 'Manage'); ?></h3>
 						<ul class="options">
 							<?php foreach ($manage as $k => $item): ?>
-							<li><?php echo $this->Html->link(__('Manage {0}', strtolower($item)), ['controller' => 'Acl', 'action' => 'Permissions', $item]); ?></li>
+							<li><?php echo $this->Html->link(__d('AclManager', 'Manage {0}', strtolower($item)), ['controller' => 'Acl', 'action' => 'Permissions', $item]); ?></li>
 							<?php endforeach; ?>
 						</ul>
 					</div>
 					
 					<div class="col-sm-4">
-						<h3><?php echo __('Update'); ?></h3>
+						<h3><?php echo __d('AclManager', 'Update'); ?></h3>
 						<ul class="options">
-							<li><?php echo $this->Html->link(__('Update ACOs'), ['controller' => 'Acl', 'action' => 'UpdateAcos']); ?></li>
-							<li><?php echo $this->Html->link(__('Update AROs'), ['controller' => 'Acl', 'action' => 'UpdateAros']); ?></li>
+							<li><?php echo $this->Html->link(__d('AclManager', 'Update ACOs'), ['controller' => 'Acl', 'action' => 'UpdateAcos']); ?></li>
+							<li><?php echo $this->Html->link(__d('AclManager', 'Update AROs'), ['controller' => 'Acl', 'action' => 'UpdateAros']); ?></li>
 						</ul>
 					</div>
 					
 					<div class="col-sm-4">
-						<h3><?php echo __('Drop and restore'); ?></h3>
+						<h3><?php echo __d('AclManager', 'Drop and restore'); ?></h3>
 						<ul class="options">
-							<li><?php echo $this->Html->link(__('Revoke permissions and set defaults'), ['controller' => 'Acl', 'action' => 'RevokePerms'], ['confirm' => __('Do you really want to revoke all permissions? This will remove all above assigned permissions and set defaults. Only first item of last ARO will have access to panel.')]); ?></li>
-							<li><?php echo $this->Html->link(__('Drop ACOs and AROs'), ['controller' => 'Acl', 'action' => 'drop'], ['confirm' => __('Do you really want delete ACOs and AROs? This will remove all above assigned permissions.')]); ?></li>
-							<li><?php echo $this->Html->link(__('Update ACOs and AROs and set default values'), ['controller' => 'Acl', 'action' => 'defaults'], ['confirm' => __('Do you want restore defaults? This will remove all above assigned permissions. Only first item of last ARO will have access to panel.')]); ?></li>
+							<li><?php echo $this->Html->link(__d('AclManager', 'Revoke permissions and set defaults'), ['controller' => 'Acl', 'action' => 'RevokePerms'], ['confirm' => __d('AclManager', 'Do you really want to revoke all permissions? This will remove all above assigned permissions and set defaults. Only first item of last ARO will have access to panel.')]); ?></li>
+							<li><?php echo $this->Html->link(__d('AclManager', 'Drop ACOs and AROs'), ['controller' => 'Acl', 'action' => 'drop'], ['confirm' => __d('AclManager', 'Do you really want delete ACOs and AROs? This will remove all above assigned permissions.')]); ?></li>
+							<li><?php echo $this->Html->link(__d('AclManager', 'Update ACOs and AROs and set default values'), ['controller' => 'Acl', 'action' => 'defaults'], ['confirm' => __d('AclManager', 'Do you want restore defaults? This will remove all above assigned permissions. Only first item of last ARO will have access to panel.')]); ?></li>
 						</ul>
 					</div>
 
@@ -72,7 +72,7 @@
 			<div class="box box-primary">
 				<div class="box-body">
 					
-					<h2><?php echo sprintf(__($model)); ?></h2>
+					<h2><?php echo sprintf(__d('AclManager', $model)); ?></h2>
 					<hr />
 					
 					<?php echo $this->Form->create('Perms'); ?>
@@ -85,7 +85,7 @@
 									<?php $aro = array_shift($aro); ?>
 									<th>
 										<?php
-										if (($model == 'Roles' OR $model == 'Users') && $this->request->session()->read('Auth.User.role_id') == 1) {
+										if (($model == 'Roles' OR $model == 'Users') && $this->request->getSession()->read('Auth.User.role_id') == 1) {
 											$gData = $this->AclManager->getName('Groups', $aro['group_id']);
 											echo h($aro[$aroDisplayField]) . ' ( ' . $gData['name'] . ' )';
 										} else {
@@ -115,7 +115,7 @@
 									echo "<tr class='aclmanager-ident-" . $ident . "'>";
 								}
 
-								if ($this->AclManager->Acl->check(['Users' => ['id' => $this->request->session()->read('Auth.User.id')]], $action)) {
+								if ($this->AclManager->Acl->check(['Users' => ['id' => $this->request->getSession()->read('Auth.User.id')]], $action)) {
 									echo "<td>";
 									echo Inflector::humanize(($ident == 1 ? "<strong>" : "" ) . ($uglyIdent ? str_repeat("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", $ident) : "") . h($alias) . ($ident == 1 ? "</strong>" : "" ));
 									echo "</td>";
@@ -156,7 +156,7 @@
 										}
 
 										echo "<td class=\"select-perm\">";
-												echo $icon . ' ' . $this->Form->select("Perms." . str_replace("/", ":", $action) . ".{$aroAlias}:{$aro[$aroAlias]['id']}", array('inherit' => __('Inherit'), 'allow' => __('Allow'), 'deny' => __('Deny')), array('empty' => __($mAllowedText), 'class' => 'form-control'));
+												echo $icon . ' ' . $this->Form->select("Perms." . str_replace("/", ":", $action) . ".{$aroAlias}:{$aro[$aroAlias]['id']}", array('inherit' => __d('AclManager', 'Inherit'), 'allow' => __d('AclManager', 'Allow'), 'deny' => __d('AclManager', 'Deny')), array('empty' => __d('AclManager', $mAllowedText), 'class' => 'form-control'));
 										echo "</td>";
 									endforeach;
 
@@ -181,7 +181,7 @@
 								</ul>
 								<p><?php echo $this->Paginator->counter() ?></p>
 							</div>
-							 <button type="submit" class="btn btn-primary right"><?php echo __("Save"); ?></button>
+							 <button type="submit" class="btn btn-primary right"><?php echo __d('AclManager', 'Save'); ?></button>
 						</div>
 					</div>
 
@@ -194,15 +194,15 @@
 		<!-- Legend -->
 		<div class="col-xs-12">
 			<div class="col-sm-4">
-				<p><?php echo $this->Html->image('AclManager.deny_32.png') . ' ' . __('Denied') ?></p>
-				<p><?php echo $this->Html->image('AclManager.deny_inherited_32.png') . ' ' . __('Denied by inheritance') ?></p>
+				<p><?php echo $this->Html->image('AclManager.deny_32.png') . ' ' . __d('AclManager', 'Denied') ?></p>
+				<p><?php echo $this->Html->image('AclManager.deny_inherited_32.png') . ' ' . __d('AclManager', 'Denied by inheritance') ?></p>
 			</div>
 			<div class="col-sm-4">
-				<p><?php echo $this->Html->image('AclManager.allow_32.png') . ' ' . __('Allowed') ?></p>
-				<p><?php echo $this->Html->image('AclManager.allow_inherited_32.png') . ' ' . __('Allowed by inheritance') ?></p>
+				<p><?php echo $this->Html->image('AclManager.allow_32.png') . ' ' . __d('AclManager', 'Allowed') ?></p>
+				<p><?php echo $this->Html->image('AclManager.allow_inherited_32.png') . ' ' . __d('AclManager', 'Allowed by inheritance') ?></p>
 			</div>
 			<div class="col-sm-4">
-				<p><?php echo __('All permissions are denied by default. When the permissions are set, this ACO\'s children inherit permissions.'); ?></p>
+				<p><?php echo __d('AclManager', 'All permissions are denied by default. When the permissions are set, this ACO\'s children inherit permissions.'); ?></p>
 			</div>
 		</div>
 

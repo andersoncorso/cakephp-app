@@ -1,4 +1,3 @@
-<!-- File: src/Template/Users/login.ctp -->
 <?php $this->layout = 'AdminLTE.login'; ?>
 
 <?php if($this->request->getSession()->read('Flash')): ?>

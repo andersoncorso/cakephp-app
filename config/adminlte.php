@@ -19,7 +19,7 @@ return [
 		],
 		'login' => [
 			'show_remember' => true,
-			'show_register' => false,
+			'show_register' => true,
 			'show_social' => false
 		],
 		'folder' => ROOT,

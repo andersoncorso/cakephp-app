@@ -56,26 +56,7 @@
 			</a>
 		</div>
 		<div class="login-box-body">
-									
-			<?php if($this->request->getSession()->read('Flash')): ?>
-				<div class="row">
-					<?= $this->Flash->render(); ?>
-					<?= $this->Flash->render('auth'); ?>
-				</div>
-			<?php else: ?>
-				<p class="login-box-msg">
-					<?= __('Faça login para iniciar sua sessão') ?>
-				</p>
-			<?php endif; ?>
-
 			<?php echo $this->fetch('content'); ?>
-
-			<br>
-			<?php if(Configure::read('Theme.login.show_remember')): ?>
-				<p class="text-right">
-					<a href="#"><?php echo __('Recuperar senha') ?></a><br>
-				</p>
-			<?php endif; ?>
 		</div>
 	</div>
 

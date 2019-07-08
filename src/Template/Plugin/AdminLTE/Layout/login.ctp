@@ -30,7 +30,9 @@
 	<?php
 		echo $this->fetch('meta'); 		// Meta tags
 		echo $this->fetch('css'); 		// CSS styles
-		echo $this->fetch('script'); 	// JS scripts
+		echo $this->fetch('script'); 	// JS scripts,
+
+		echo $this->fetch('css_inline');	// CSS inline styles
 	?>
 
 	<!-- Favicon -->
@@ -60,12 +62,13 @@
 			'/plugins/AdminLTE/bower_components/bootstrap/dist/js/bootstrap.min', // Bootstrap 3.3.7
 			'default', // Default script js
 		],
-		['block' => 'scriptBottom']);
+		['block' => 'script_bottom']);
+
+		echo $this->fetch('script_bottom');
 	?>
-	<?php echo $this->fetch('scriptBottom'); ?>
 
 	<!-- JS inline scripts -->
-	<?php echo $this->fetch('scriptInline'); ?>
+	<?php echo $this->fetch('script_inline'); ?>
 
 </body>
 </html>

@@ -36,37 +36,3 @@
 <?php if( $this->request->is('mobile') ): ?>
 </div>
 <?php endif;?>
-
-<?php
-	$this->Html->css([
-		'AdminLTE./plugins/datatables/dataTables.bootstrap',
-	],
-	['block' => 'css']);
-
-	$this->Html->script([
-		'AdminLTE./plugins/datatables/jquery.dataTables.min',
-		'AdminLTE./plugins/datatables/dataTables.bootstrap.min',
-	],
-	['block' => 'script']);
-?>
-
-<?php $this->start('scriptBottom'); ?>
-<script>
-	$(function () {
-		$('#tbList').DataTable({
-			"paging": true,
-			"lengthChange": true,
-			"pageLength": 25,
-			"searching": true,
-			"ordering": true,
-			"info": true,
-			"autoWidth": true,
-			// "scrollX": 50,
-			// "scrollY": 50,
-			"language": {
-				"url": "../js/datatable/i18n/Portuguese-Brasil.json"
-			}			
-		});
-	});
-</script>
-<?php $this->end(); ?>
